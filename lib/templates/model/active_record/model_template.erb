@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe <%= @model.model %>, regressor: true do
+RSpec.describe <%= @model.model %>, <%= type_metatag(:model) %> do
 
   it "has a valid factory" do
     # Using the shortened version of FactoryGirl syntax.
     # Add:  "config.include FactoryGirl::Syntax::Methods" (no quotes) to your spec_helper.rb
-    expect(build(:<%= @model.model.to_s.underscore %>).to be_valid
+    expect(build(:<%= @model.model.to_s.underscore %>)).to be_valid
   end
 
   # Lazily loaded to ensure it's only used when it's needed
