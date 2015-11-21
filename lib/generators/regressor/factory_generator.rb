@@ -15,7 +15,7 @@ module Regressor
       load_ar_models.each do |model|
         save_generate(model) do
           @model = ::Regressor::Model::FactoryModel.new(model)
-          create_file "#{Regressor.configuration.regression_factory_path}/#{model.underscore.singularize}_factory.rb",
+          create_file "#{Regressor.configuration.regression_factory_path}/#{model.underscore.singularize}_factories.rb",
                       ERB.new(File.new(File.expand_path('../../templates/factory/factory_template.erb', File.dirname(__FILE__))).read).result(binding)
         end
       end
